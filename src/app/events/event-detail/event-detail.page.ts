@@ -24,7 +24,9 @@ export class EventDetailPage implements OnInit {
       }
       const eventId = paramMap.get('eventId');
       this.loadedEvent = this.eventsService.getEvent(eventId);
-      console.log(paramMap);
     });
+  }
+  setBookedConference(conferenceId: string) {
+    this.eventsService.setBookedConference(this.loadedEvent.id, conferenceId);
   }
 }

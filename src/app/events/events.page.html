@@ -9,8 +9,8 @@
   <ion-list-header>
     <ion-label>Events list</ion-label>
   </ion-list-header>
-  <ion-list *ngFor="let event of events">
-    <ion-item button (click)="onClick()">
+  <ion-list>
+    <ion-item *ngFor="let event of events" [routerLink]="['./', event.id] ">
       <ion-thumbnail slot="start">
         <ion-img alt="Silhouette of mountains" [src]="event.imageUrl">
         </ion-img>
