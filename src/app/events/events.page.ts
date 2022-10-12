@@ -9,10 +9,12 @@ import { EventsService } from './event.service';
 export class EventsPage implements OnInit {
   events: Event[];
   constructor(private eventsService: EventsService) {}
-  onClick() {
-    console.log('clicked');
-  }
+
   ngOnInit() {
     this.events = this.eventsService.getAllEvents();
+  }
+
+  onSearchChange(event: any) {
+    this.events = this.eventsService.searchEvents(event.detail.value);
   }
 }

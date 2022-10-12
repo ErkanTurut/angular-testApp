@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="events"></ion-back-button>
     </ion-buttons>
-    <ion-title>event-detail</ion-title>
+    <ion-title>Détail évenement</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -42,8 +42,10 @@
           <ion-item *ngFor="let conf of loadedEvent.conferences">
             <ion-checkbox
               slot="start"
-              (click)="setBookedConference(conf.id) "
-            ></ion-checkbox>
+              (ionChange)="setBookedConference(conf.id)"
+              checked="{{conf.booked}}"
+            >
+            </ion-checkbox>
             <ion-label>
               <h2>{{conf.title}}</h2>
               <p>{{conf.description}}</p>
@@ -52,6 +54,11 @@
                 {{conf.availableTo | date: 'M/d/yy, h:mm a' }}
               </p>
             </ion-label>
+            <ion-icon
+              slot="end"
+              name="information-circle-outline"
+              [routerLink]="['./', conf.id]"
+            ></ion-icon>
           </ion-item>
         </ion-list>
       </ion-col>

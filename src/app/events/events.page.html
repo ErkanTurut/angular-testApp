@@ -5,7 +5,11 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar animated="true" placeholder="Search event"></ion-searchbar>
+  <ion-searchbar
+    animated="true"
+    (ionChange)="onSearchChange($event)"
+    placeholder="Search event"
+  ></ion-searchbar>
   <ion-list-header>
     <ion-label>Events list</ion-label>
   </ion-list-header>

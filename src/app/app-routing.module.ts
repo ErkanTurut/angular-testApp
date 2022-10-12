@@ -27,6 +27,13 @@ const routes: Routes = [
             (m) => m.EventDetailPageModule
           ),
       },
+      {
+        path: ':eventId/:conferenceId',
+        loadChildren: () =>
+          import('./events/event-detail/conference/conference.module').then(
+            (m) => m.ConferencePageModule
+          ),
+      },
     ],
   },
 ];
