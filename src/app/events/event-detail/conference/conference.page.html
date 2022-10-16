@@ -19,12 +19,12 @@
                 {{loadedConferences.availableFrom | date: 'HH:mm ' }} à
                 {{loadedConferences.availableTo | date: 'HH:mm' }}
               </p>
-              <ion-button fill="none" (click)="setBookedConference()">
+              <!-- <ion-button fill="none" (click)="setBookedConference()">
                 <ion-icon
                   slot="icon-only"
                   [name]="loadedConferences.booked ? 'bookmark' : 'bookmark-outline'"
                 ></ion-icon>
-              </ion-button>
+              </ion-button> -->
             </ion-card-subtitle>
 
             <!-- <ion-card-title>{{loadedConferences.title}}</ion-card-title> -->
@@ -38,6 +38,12 @@
             <p>{{loadedConferences.speakers}}</p>
           </ion-card-subtitle>
         </ion-card>
+        <ion-button
+          download="MyFavicon"
+          href="{{loadedConferences.documents[0]}}"
+          target="_blank"
+          >Download pdf</ion-button
+        >
       </ion-col>
     </ion-row>
   </ion-grid>
